@@ -1,46 +1,60 @@
-# Getting Started with Create React App
+# tooltip_components
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+React 기반 애플리케이션 개발 시, 다양하게 사용자 정의하여 사용 가능한 툴팁 컴포넌트입니다.
+이를 사용하여 요소에 쉽게 툴팁을 추가하여 사용자에게 추가 정보나 컨텍스트를 제공할 수 있습니다.
 
-## Available Scripts
 
-In the project directory, you can run:
+## Getting Started
 
-### `npm start`
+repository를 클론 후 의존성을 설치해주세요 😊
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+```bash
+git clone https://github.com/yurimeeee/tooltip_components.git
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+npm install
 
-### `npm test`
+npm start
+```
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Use 
+```bash
+import Tooltip from '@components/Tooltip';
 
-### `npm run build`
+const App = () => {
+  return (
+    <Tooltip content="안녕하세요, 저는 툴팁입니다" direction="top">
+      <button>마우스를 올려보세요</button>
+    </Tooltip>
+  );
+};
+```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Description
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### Props
+Tooltip 컴포넌트는 여러 속성을 받아서 툴팁의 내용/스타일을 커스터마이징하기 위해 **`styled components`** 로 구현하였습니다.
+각각의 속성은 다음과 같은 역할을 합니다.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- **`content`**: 툴팁에 표시할 내용을 설정. (ReactNode로 전달)
+- **`children`**: 툴팁을 표시할 요소.
+- **`direction`**: 툴팁이 표시될 방향을 설정.
+- **`delay`**: 툴팁이 나타나기까지의 지연 시간을 설정.
+- **`hideDelay`**: 마우스를 요소에서 떼고 나서 툴팁이 사라지는 지연 시간을 설정.
+- **`customStyle`**: 툴팁의 커스텀 스타일을 설정.
+- **`width`**, **`height`**, **`fontSize`**, **`fontWeight`**, **`lineHeight`**, **`fontColor`**, **`bgColor`**, **`padding`**, **`margin`**, **`border`**, **`borderRadius`**: 툴팁의 스타일을 세부적으로 설정.
+- **`icon`**: 툴팁 내에 표시할 아이콘 이미지 URL을 설정.
+- **`button`**: 툴팁 내에 표시할 버튼의 텍스트.
+- **`btnBgColor`**, **`btnFontColor`**: 버튼의 배경색과 글자색을 설정.
+- **`disabled`**: 툴팁의 비활성화 여부를 설정.
+- **`hoverActive`**: 마우스를 툴팁 위에 올려놓은 상태에서 툴팁이 사라지지 않도록 할지 여부를 설정.
 
-### `npm run eject`
+컴포넌트는 다음과 같은 동작을 합니다.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+1. **`isVisible`** 툴팁의 가시성 상태.
+2. **`isHovered`** 툴팁 내의 마우스 호버 상태.
+3. **`positionStyles`** 툴팁의 위치를 동적으로 계산하고 업데이트하는 상태.
+4. **`showTimeoutRef`** 와 **`hideTimeoutRef`** 를 사용하여 툴팁의 나타나고 사라지는 타이밍을 제어.
+5. **`handleMouseEnter`**, **`handleMouseLeave`**, **`handleTooltipMouseEnter`**, **`handleTooltipMouseLeave`** 함수를 사용하여 마우스 이벤트를 처리.
+6. **`getPositionStyles`** 함수를 사용하여 툴팁의 위치를 계산.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
