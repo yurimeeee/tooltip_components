@@ -1,0 +1,17 @@
+{
+    "compilerOptions": {
+        "baseUrl": "./",
+        "paths": {
+            "@assets/*": ["src/assets/*"],
+            "@components/*": ["src/components/*"],
+            "@context/*": ["src/context/*"],
+            "@graphql/*": ["src/graphql/*"],
+            "@hooks/*": ["src/hooks/*"],
+            "@pages/*": ["src/pages/*"],
+            "@store/*": ["src/store/*"],
+            "@styles/*": ["src/styles/*"],
+            "@utils/*": ["src/utils/*"],
+            "@lib/*": ["src/lib/*"]
+        }
+    }
+}
